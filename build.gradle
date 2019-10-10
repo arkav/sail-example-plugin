@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'dev.arkav'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+task exportPlugin(type: Jar) {
+    from configurations.compile
+    destinationDir = file("$rootDir/build/plugins")
+    with jar
+}
+
+dependencies {
+    compile 'dev.arkav:sail:1.0.0'
+}
